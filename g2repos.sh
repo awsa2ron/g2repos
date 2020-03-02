@@ -3,11 +3,9 @@
 echo "grep git repository"
 if test $# -eq 0
     then
-        echo "no argument, default config file name is repos"
-        REPOS_FILE=repos
-fi
-
-if test -f "$1"
+        echo "no argument, default config file name is .config"
+        REPOS_FILE=.config
+elif test -f "$1"
     then
         REPOS_FILE=$1
     else
