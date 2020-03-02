@@ -8,17 +8,18 @@ if [ $# -gt 1 ]; then
 elif [ $# -eq 0 ]; then
     echo "use default .config"
     REPOS_FILE=.config
-elif [ -f "$1"]; then
+elif [ -f $1 ]; then
+    echo "use config $1"
     REPOS_FILE=$1
 else
     echo "not vailid config file"
     exit 1
 fi
 
-        
+
 GIT_FLAGS=" --recurse-submodules "
 #GIT_FLAGS+=" --origin upstream "
- 
+
 GIT_CLONE="git clone ${GIT_FLAGS}"
 echo ${GIT_CLONE} ...
 
