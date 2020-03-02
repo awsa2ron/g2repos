@@ -1,7 +1,21 @@
 #! /bin/bash
 # Welcome
 echo "grep git repository"
-REPOS_FILE=repos
+if test $# -eq 0
+    then
+        echo "no argument, default config file name is repos"
+        REPOS_FILE=repos
+fi
+
+if test -f "$1"
+    then
+        REPOS_FILE=$1
+    else
+        echo "not vailid config file"
+        exit 1
+fi
+
+        
 GIT_FLAGS=" --recurse-submodules "
 GIT_FLAGS+=" --origin upstream "
  
